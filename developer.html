@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Developer</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, #f8bbd0, #e1bee7);
+      }
+
+      .card {
+        background: white;
+        padding: 50px;
+        border-radius: 25px;
+        text-align: center;
+        max-width: 500px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .card h1 {
+        color: #e57399;
+        margin-bottom: 15px;
+      }
+
+      .card p {
+        color: #666;
+        margin-bottom: 25px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 12px 25px;
+        background: #e57399;
+        color: white;
+        text-decoration: none;
+        border-radius: 30px;
+      }
+
+      /* Tombol Rahasia */
+
+      #secretBtn {
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        cursor: pointer;
+
+        /* benar-benar tidak terlihat */
+        opacity: 0;
+        z-index: 9999;
+      }
+
+      /* Popup */
+
+      .popup {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition: 0.3s;
+        z-index: 99999;
+      }
+
+      .popup.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .popup-content {
+        background: #fff;
+        padding: 30px;
+        border-radius: 20px;
+        text-align: center;
+        width: 90%;
+        max-width: 420px;
+        position: relative;
+        animation: pop 0.35s ease;
+      }
+
+      .popup-content img {
+        width: 100%;
+        border-radius: 15px;
+        margin-bottom: 20px;
+      }
+
+      .popup-content h2 {
+        color: #e57399;
+        margin-bottom: 10px;
+      }
+
+      .popup-content p {
+        color: #666;
+      }
+
+      .close {
+        position: absolute;
+        top: 10px;
+        right: 18px;
+        font-size: 30px;
+        cursor: pointer;
+        color: #888;
+      }
+
+      .close:hover {
+        color: #000;
+      }
+
+      @keyframes pop {
+        from {
+          transform: scale(0.8);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="card">
+      <h1>Akma, Arul & Ilham</h1>
+
+      <p>
+        Web Developer & Designer
+        <br />
+        Penyusun website Baby Storylens.
+      </p>
+
+      <a href="index.html" class="btn"> Kembali ke Website </a>
+    </div>
+
+    <!-- Tombol Rahasia -->
+    <div id="secretBtn"></div>
+
+    <!-- Popup Developer -->
+    <div class="popup" id="developerPopup">
+      <div class="popup-content">
+        <span class="close">&times;</span>
+
+        <a href="https://ibb.co.com/HpBMbpDC"
+          ><img
+            src="https://i.ibb.co.com/FqmfyqbX/Whats-App-Image-2026-07-04-at-14-24-29.jpg"
+            alt="Whats-App-Image-2026-07-04-at-14-24-29"
+            border="0"
+        /></a>
+        <h2>Tim Developer</h2>
+
+        <p>Akma • Arul • Ilham</p>
+      </div>
+    </div>
+
+    <script>
+      const secretBtn = document.getElementById("secretBtn");
+      const popup = document.getElementById("developerPopup");
+      const closeBtn = document.querySelector(".close");
+
+      secretBtn.addEventListener("click", () => {
+        popup.classList.add("show");
+      });
+
+      closeBtn.addEventListener("click", () => {
+        popup.classList.remove("show");
+      });
+
+      popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+          popup.classList.remove("show");
+        }
+      });
+    </script>
+  </body>
+</html>
