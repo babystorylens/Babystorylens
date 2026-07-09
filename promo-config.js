@@ -2,7 +2,7 @@ window.PROMO = {
 
     enabled: true,
 
-    image: "images/paket-tulips.png",
+    image: "images/paket-rose.png",
 
     link: "paket/Rose.html",
 
